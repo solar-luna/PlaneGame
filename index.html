@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雷霆战机</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="game-container">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div class="game-hud" id="gameHud" style="display: none;">
+            <div class="level-progress">
+                <div>关卡: <span id="currentLevel">1</span></div>
+                <div id="levelStatus">敌机: 0/10</div>
+                <div id="levelTime">时间: 60s</div>
+            </div>
+            <div class="weapon-info">
+                <div>武器: <span id="weaponLevel">Lv.1</span> <span id="weaponType">单发</span></div>
+            </div>
+            <div class="score-multiplier-info" id="scoreMultiplierInfo" style="display: none;">
+                <div>分数加倍: <span id="scoreMultiplier">x2</span> <span id="multiplierTime">10s</span></div>
+            </div>
+        </div>
+        <div class="game-info">
+            <div class="score">分数: <span id="scoreValue">0</span></div>
+            <div class="lives">生命: <span id="livesValue">3</span></div>
+            <button id="muteButton" class="mute-btn">🔊</button>
+        </div>
+        <div class="game-menu" id="gameMenu">
+            <h1>雷霆战机</h1>
+            <button id="startButton">开始游戏</button>
+            <button id="levelSelectButton">选择关卡</button>
+            <button id="endlessModeButton">无尽模式</button>
+            <div class="controls">
+                <p>使用 WASD 或方向键控制飞机</p>
+                <p>自动射击，击毁敌机获得分数</p>
+                <p>每3关会有强大的BOSS等待挑战！</p>
+                <p>🚀 无尽模式：挑战你的极限！</p>
+            </div>
+        </div>
+        
+        <div class="level-select" id="levelSelect" style="display: none;">
+            <h2>选择关卡</h2>
+            <div class="level-grid" id="levelGrid">
+                <!-- 关卡按钮将通过JavaScript生成 -->
+            </div>
+            <button id="backToMenuButton">返回主菜单</button>
+        </div>
+        <div class="pause-menu" id="pauseMenu" style="display: none;">
+            <h2>游戏暂停</h2>
+            <div class="pause-info">
+                <p>当前分数: <span id="pauseScore">0</span></p>
+                <p>当前关卡: <span id="pauseLevel">1</span></p>
+                <p>剩余生命: <span id="pauseLives">3</span></p>
+            </div>
+            <div class="pause-buttons">
+                <button id="resumeButton">继续游戏</button>
+                <button id="restartFromPauseButton">重新开始</button>
+                <button id="backToMenuFromPauseButton">返回主菜单</button>
+            </div>
+            <div class="pause-controls">
+                <p>按 ESC 键继续游戏</p>
+                <p>使用 WASD 或方向键控制飞机</p>
+            </div>
+        </div>
+        
+        <div class="game-over" id="gameOver" style="display: none;">
+            <h2>游戏结束</h2>
+            <p>最终分数: <span id="finalScore">0</span></p>
+            <button id="restartButton">重新开始</button>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/utils/vector2.js"></script>
+    <script src="js/utils/inputHandler.js"></script>
+    <script src="js/utils/collisionDetector.js"></script>
+    <script src="js/gameObjects/gameObject.js"></script>
+    <script src="js/gameObjects/player.js"></script>
+    <script src="js/gameObjects/enemy.js"></script>
+    <script src="js/gameObjects/bullet.js"></script>
+    <script src="js/gameObjects/powerUp.js"></script>
+    <script src="js/gameObjects/boss.js"></script>
+    <script src="js/effects/particleSystem.js"></script>
+    <script src="js/systems/achievementSystem.js"></script>
+    <script src="js/systems/scoreManager.js"></script>
+    <script src="js/systems/endlessMode.js"></script>
+    <script src="js/audioManager.js"></script>
+    <script src="js/levelManager.js"></script>
+    <script src="js/enemySpawner.js"></script>
+    <script src="js/gameState.js"></script>
+    <script src="js/gameManager.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
